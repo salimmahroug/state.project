@@ -1,0 +1,72 @@
+//Transformez le fichier App.js en un composant basé sur des classes.
+import React, { Component } from 'react';
+import './App.css'; 
+//les style de tous les element 
+const stylename ={color:"white",}
+const stylebuton={height:"30px",width:"100px" ,borderRadius:"10px",backgroundColor:"grey" ,color:"white"}
+const styl={textAlign:"center"}
+const stylee ={textAlign:"center",border:"solide 10px",display:"block", backgroundColor:"grey",margin:"0px 99px 0px 99px",borderRadius:" 60px "}
+class App extends Component {
+  //Implémentez un état pour cette classe contenant
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      person: {
+        fullName: "Lionel Messi",
+        bio: " né le 24 juin 1987 à Rosario en Argentine, est un footballeur international argentin jouant au poste d'attaquant à l’Inter Miami CF en MLS. ",
+        imgSrc: "data:image/jpeg;base64,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",
+        profession: "Jouer de foot "
+      },
+      //l etat de l affichage
+      show: false,   
+      mountedTime: new Date(),
+      elapsedTime: 0,
+    };
+  }
+  // champ qui indique l’intervalle de temps écoulé depuis le dernier montage du composant
+  componentDidMount() {
+    this.intervalId = setInterval(() => {
+      this.setState((prevState) => ({
+        elapsedTime: prevState.elapsedTime + 1,
+      }));
+    }, 1000); 
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId); 
+  }
+  //Ajoutez un bouton qui permet d’activer ou de désactiver l’état de l’affichage
+  //Lorsque l’état de l’affichage show est vrai, le profil de la personne s’affiche.
+  handleShowPerson= () => {
+    this.setState((prevState) => ({
+      show: !prevState.show,
+    }));
+  };
+
+  render() {
+    const { fullName, bio, imgSrc, profession } = this.state.person;
+    const { show, elapsedTime } = this.state;
+
+    return (
+      <div className="App" style={styl}>
+        <button onClick={this.handleShowPerson} style={stylebuton}> Profile</button> 
+
+        {show && (
+          <div className="profile" style={stylee}>
+            <h1 style={stylename}>{fullName}</h1>
+            <p>{bio}</p>
+            <img src={imgSrc} alt={fullName} />
+            <p>{profession}</p>
+          </div>
+        )}
+
+        <p className="time">
+          Mounted {elapsedTime} seconds ago.
+        </p>
+      </div>
+    );
+  }
+}
+
+export default App;
